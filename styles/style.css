@@ -2,11 +2,11 @@
     --dark-bg: #222222;
     --light-text: #ffffff;
     --accent-color: #d1b58a;
-    --section-bg: #f9f9f9;
     --card-bg: #ffffff;
+    --subtle-gray: #f0f0f0; 
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Poppins', sans-serif;
-    --about-bg: #eaeaea; /* Warna latar belakang baru untuk About Me */
+    --footer-bg: #1a1a1a;
 }
 
 * {
@@ -19,7 +19,8 @@ body {
     font-family: var(--font-body);
     line-height: 1.7;
     color: #333;
-    background-color: var(--section-bg);
+    background: url('../subtle-texture.png'); 
+    background-color: var(--subtle-gray);
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -33,7 +34,7 @@ body {
     display: flex;
     justify-content: center;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.0);
+    background: transparent;
     transition: background-color 0.3s ease;
 }
 
@@ -44,6 +45,7 @@ body {
 
 .nav-link {
     color: var(--light-text);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     text-decoration: none;
     margin: 0 20px;
     font-weight: 400;
@@ -54,6 +56,7 @@ body {
 
 .navbar.scrolled .nav-link {
     color: #333;
+    text-shadow: none;
 }
 
 .nav-link:hover {
@@ -78,17 +81,9 @@ body {
     width: 100%;
     height: 100%;
     background: url('../Me.jpg') no-repeat center center/cover;
-    filter: brightness(0.7);
+    filter: brightness(0.55);
     z-index: -1;
-    /* Animasi dihilangkan */
-    /* animation: zoomOut 20s infinite alternate; */
 }
-
-/* Keyframes ini tidak lagi digunakan karena animasi dihilangkan */
-/* @keyframes zoomOut {
-    from { transform: scale(1.0); }
-    to { transform: scale(1.1); }
-} */
 
 .hero-content {
     z-index: 1;
@@ -135,6 +130,25 @@ body {
     text-align: center;
 }
 
+.about-me-section {
+    background-color: var(--card-bg); 
+    padding-top: 120px; 
+    padding-bottom: 100px;
+    border-bottom: none;
+}
+
+.skills-section {
+    background: none; 
+}
+
+.portfolio-section {
+    background-color: var(--card-bg); 
+}
+
+.contact-section {
+    background: none; 
+}
+
 .section-title {
     font-family: var(--font-heading);
     font-size: 2.5rem;
@@ -154,17 +168,16 @@ body {
     background-color: var(--accent-color);
 }
 
-.about-me-section {
-    background-color: var(--about-bg); /* Latar belakang baru untuk About Me */
-    padding-top: 120px; /* Menambah jarak dari atas */
-    padding-bottom: 100px;
-}
-
 .content-card {
     background-color: var(--card-bg);
     padding: 50px;
     border-radius: 5px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08); 
+}
+
+.wide-card {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .about-me-section p {
@@ -180,13 +193,13 @@ body {
     justify-content: center;
     gap: 40px;
     margin-top: 20px;
+    text-align: left;
 }
 
 .skill-group {
     flex: 1;
     min-width: 280px;
     max-width: 400px;
-    text-align: left;
 }
 
 .skill-group h3 {
@@ -208,31 +221,119 @@ body {
 
 .skill-bar {
     background-color: #eee;
-    border-radius: 3px;
-    height: 8px;
+    border-radius: 5px;
+    height: 10px;
     overflow: hidden;
 }
 
 .skill-level {
     height: 100%;
     background-color: var(--accent-color);
+    border-radius: 5px;
     width: 0%;
     transition: width 1s ease-out;
 }
 
 .skills-section.active .html-css-js { width: 90%; }
-.skills-section.active .python-skill { width: 80%; } /* Level untuk Python */
-.skills-section.active .dsa-skill { width: 70%; } /* Level untuk DSA */
+.skills-section.active .python-skill { width: 80%; }
+.skills-section.active .dsa-skill { width: 70%; }
 .skills-section.active .ui-ux { width: 75%; }
 .skills-section.active .problem-solving { width: 85%; }
 
-.contact-form {
-    max-width: 600px;
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.project-item {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin: 20px 20px 10px 20px;
+    color: var(--dark-bg);
+}
+
+.project-item p {
+    font-size: 0.95rem;
+    padding: 0 20px 15px 20px;
+    color: #666;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 20px;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #b89a6f;
+}
+
+.contact-container {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
     margin: 0 auto;
     background-color: var(--card-bg);
-    padding: 40px;
     border-radius: 5px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08); 
+}
+
+.contact-form {
+    flex: 2;
+    padding: 40px;
+    text-align: left;
+}
+
+.social-icons-card {
+    flex: 1;
+    background: url('../subtle-texture.png'); 
+    background-color: #e8e8e8; 
+    padding: 40px;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons-card h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+    color: var(--dark-bg);
+}
+
+.contact-info {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #555;
 }
 
 .contact-form input,
@@ -273,14 +374,13 @@ body {
 }
 
 .social-icons {
-    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
 .social-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--accent-color);
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -293,36 +393,95 @@ body {
 footer {
     text-align: center;
     padding: 30px;
-    background-color: #333;
-    color: #aaa;
+    background-color: var(--footer-bg);
+    color: var(--light-text);
     font-size: 0.9rem;
-    margin-top: 50px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(4px);
+    padding-top: 50px;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto; 
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%; 
+    max-width: 900px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+#modalTitle {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--dark-bg);
+    margin-bottom: 10px;
+}
+
+.modal-tech {
+    font-family: var(--font-body);
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+#modalDescription {
+    color: #444;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    .nav-link {
-        margin: 0 10px;
-    }
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .section {
-        padding: 60px 20px;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
-    .content-card {
-        padding: 30px;
-    }
-    .skill-categories {
-        flex-direction: column;
-        align-items: center;
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
     }
 }
