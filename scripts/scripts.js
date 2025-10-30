@@ -24,13 +24,34 @@ window.addEventListener('scroll', function() {
     }
 });
 
-const skillsSection = document.getElementById('skills');
+const sections = document.querySelectorAll('section, header, footer');
+const navLinks = document.querySelectorAll('.nav-link');
 
 const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.4
 };
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const currentSectionId = entry.target.id;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.section === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}, observerOptions);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+const skillsSection = document.getElementById('skills');
 
 const skillObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -39,7 +60,7 @@ const skillObserver = new IntersectionObserver((entries, observer) => {
             observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, {root: null, rootMargin: '0px', threshold: 0.4});
 
 if (skillsSection) {
     skillObserver.observe(skillsSection);
@@ -50,6 +71,24 @@ AOS.init({
     easing: 'ease-in-out',
     once: true,
     mirror: false
+});
+
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 const modal = document.getElementById("projectModal");
