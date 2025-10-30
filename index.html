@@ -9,19 +9,19 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJzLQQxZlK4yL3xSHBNyU03W/C8p2P1Q8gMvFhI3g68C0Zt+w/A/Jt1a/S50lHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJzLQQxZlK4yL3xSHBNyU03W/C8p2P1Q8gMvFhI3g68C0Zt+w/A/t1a/S50lHw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="#home" class="nav-link">HOME</a>
-        <a href="#about" class="nav-link">ABOUT ME</a>
-        <a href="#skills" class="nav-link">SKILL</a>
-        <a href="#portfolio" class="nav-link">PROJECTS</a>
-        <a href="#contact" class="nav-link">CONTACT</a>
+        <a href="#home" class="nav-link" data-section="home">HOME</a>
+        <a href="#about" class="nav-link" data-section="about">ABOUT ME</a>
+        <a href="#skills" class="nav-link" data-section="skills">SKILL</a>
+        <a href="#portfolio" class="nav-link" data-section="portfolio">PROJECTS</a>
+        <a href="#footer" class="nav-link" data-section="contact">CONTACT</a>
     </nav>
 
-    <header id="home" class="hero-section">
+    <header id="home" class="section hero-section">
         <div class="hero-background-image"></div>
         <div class="hero-content">
             <h1 data-aos="fade-up" data-aos-duration="1000">Choqy Pananda Sirait</h1>
@@ -37,10 +37,22 @@
     <section id="about" class="section about-me-section">
         <div class="content-card wide-card" data-aos="fade-up">
             <h2 class="section-title">ABOUT ME</h2>
-            <p data-aos="fade-up" data-aos-delay="200">
-                Halo! Nama saya Choqy Pananda Sirait. Saya Mahasiswa Sistem Informasi Di Institut Teknologi Del.
-                Saya percaya bahwa Tuhan Selalu Menyertai Kita.
-            </p>
+            
+            <div class="about-content-wrapper">
+                <img src="Images/WTH.jpg" alt="Personal Avatar" class="about-me-avatar">
+                
+                <p data-aos="fade-up" data-aos-delay="200">
+                    Halo! Nama saya Choqy Pananda Sirait. Saya Mahasiswa Sistem Informasi Di Institut Teknologi Del.
+                    Saya percaya bahwa Tuhan Selalu Menyertai Kita.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="250">
+                    Saat ini, saya fokus pada pengembangan web menggunakan Python/Django dan eksplorasi Data Structures & Algorithms. Tujuan saya adalah menciptakan solusi yang efisien dengan antarmuka yang intuitif.
+                </p>
+            </div>
+            
+            <a href="#portfolio" class="cta-button download-button">
+                VIEW PROJECTS &rarr;
+            </a>
         </div>
     </section>
 
@@ -62,16 +74,20 @@
                         <p>Data Structures & Algorithms</p>
                         <div class="skill-bar"><div class="skill-level dsa-skill"></div></div>
                     </div>
+                    <div class="skill-item">
+                        <p>UI/UX Design</p>
+                        <div class="skill-bar"><div class="skill-level ui-ux"></div></div>
+                    </div>
                 </div>
                 <div class="skill-group" data-aos="fade-up" data-aos-delay="300">
                     <h3>Soft Skills</h3>
                     <div class="skill-item">
-                        <p>Design</p>
-                        <div class="skill-bar"><div class="skill-level ui-ux"></div></div>
-                    </div>
-                    <div class="skill-item">
                         <p>Problem Solving</p>
                         <div class="skill-bar"><div class="skill-level problem-solving"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p>Time Management</p>
+                        <div class="skill-bar"><div class="skill-level time-management"></div></div>
                     </div>
                 </div>
             </div>
@@ -86,8 +102,8 @@
                  data-title="Nakama To-Do-List" 
                  data-desc="Proyek untuk memanajemen tugas-tugas kecil yang akan dikelola. Dibuat menggunakan HTML, CSS, dan JavaScript murni. Lihat kode selengkapnya di GitHub: https://github.com/ChoqySirait/Nakama-To-Do-List.git"
                  data-tech="Html, CSS, JavaScript"
-                 data-image="To-do-List.png">
-                <img src="https://placehold.co/300x200/9e9e9e/ffffff?text=Nakama" alt="Project 1 Thumbnail">
+                 data-image="Images/To-do-List.png">
+                <img src="Images/To-do-List.png" alt="To-Do-List Thumbnail" loading="lazy">
                 <h3>Nakama To-Do-List</h3>
                 <p>Proyek untuk memanajemen tugas-tugas kecil yang akan dikelola</p>
                 <a href="#" class="project-link open-modal">Lihat Detail &rarr;</a>
@@ -95,10 +111,10 @@
 
             <div class="project-item" data-aos="fade-up" data-aos-delay="200"
                  data-title="Kalkulator" 
-                 data-desc="Perancangan user interface (UI) dan user experience (UX) untuk game mobile bergenre survival. Proses meliputi user flow, wireframing di Figma, hingga high-fidelity prototyping."
+                 data-desc="Perancangan antarmuka pengguna dan pengalaman pengguna untuk game mobile bergenre survival. Proses meliputi user flow, wireframing di Figma, hingga high-fidelity prototyping."
                  data-tech="Figma, Adobe XD, User Flow Mapping"
-                 data-image="https://placehold.co/800x400/7a7a7a/ffffff?text=Game+UI/UX">
-                <img src="https://placehold.co/300x200/9e9e9e/ffffff?text=Kalkulator" alt="Project 2 Thumbnail">
+                 data-image="https://placehold.co/800x400/7a7a7a/ffffff?text=Kalkulator+Image">
+                <img src="https://placehold.co/300x200/9e9e9e/ffffff?text=Kalkulator+Thumb" alt="Project 2 Thumbnail" loading="lazy">
                 <h3>Kalkulator</h3>
                 <p>Desain antarmuka pengguna, wireframing, dan prototyping untuk game mobile.</p>
                 <a href="#" class="project-link open-modal">Lihat Detail &rarr;</a>
@@ -109,7 +125,7 @@
                  data-desc="Kumpulan solusi untuk berbagai masalah algoritma (Data Structures & Algorithms) di platform online judge seperti LeetCode dan HackerRank. Fokus pada efisiensi waktu dan memori."
                  data-tech="C++, Data Structures, Algorithms, Time Complexity"
                  data-image="https://placehold.co/800x400/7a7a7a/ffffff?text=DSA+Solutions">
-                <img src="https://placehold.co/300x200/9e9e9e/ffffff?text=Problem Solving" alt=Project 3 Thumbnail">
+                <img src="https://placehold.co/300x200/9e9e9e/ffffff?text=Problem+Solving" alt="Project 3 Thumbnail" loading="lazy">
                 <h3>Competitive Programming</h3>
                 <p>Solusi untuk berbagai masalah algoritma (DSA) di platform online judge.</p>
                 <a href="#" class="project-link open-modal">Lihat Detail &rarr;</a>
@@ -118,38 +134,40 @@
         </div>
     </section>
 
-    <section id="contact" class="section contact-section">
-        <h2 class="section-title" data-aos="fade-up">CONTACT ME</h2>
-        <div class="contact-container" data-aos="fade-up" data-aos-delay="200">
-            <form class="contact-form">
-                <input type="text" placeholder="Nama Anda" required>
-                <input type="email" placeholder="Email Anda" required>
-                <textarea placeholder="Pesan Anda..." rows="5" required></textarea>
-                <button type="submit" class="cta-button">KIRIM PESAN</button>
-            </form>
-            <div class="social-icons-card">
-                <h3>Connect with me</h3>
-                <div class="social-icons">
-                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <p class="contact-info">Email: choqypenandasirait@gmail.com</p>
-            </div>
+    <footer id="contact">
+        <p>Hubungi saya di:</p>
+        <p class="contact-info">choqypenandasirait@gmail.com</p>
+        <div class="social-icons-footer">
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Choqy P Sirait.</p>
+        <div class="footer-icons">
+            <i class="fas fa-code"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+        <p>&copy; 2025 Choqy P Sirait. All Rights Reserved.</p>
     </footer>
+
+    <a href="#home" id="backToTop" class="back-to-top">
+        &#9650;
+    </a>
 
     <div id="projectModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <img id="modalImage" class="modal-image" src="" alt="Project Image">
-            <h2 id="modalTitle"></h2>
-            <p id="modalTech" class="modal-tech"></p>
-            <p id="modalDescription"></p>
+            <div class="modal-body-content">
+                <img id="modalImage" class="modal-image" src="" alt="Project Image">
+                <h2 id="modalTitle"></h2>
+                <p id="modalTech" class="modal-tech"></p>
+                <p id="modalDescription"></p>
+            </div>
+            
+            <div class="modal-footer-sticky">
+                <a id="modalGithubLink" href="#" target="_blank" class="cta-button modal-cta shine-button">
+                    <i class="fab fa-github"></i> 
+                </a>
+            </div>
         </div>
     </div>
 
